@@ -57,11 +57,12 @@ paths:
                     type: string
                   refreshToken:
                     type: string
+        400:
+          description: If password not valid or other error
         404:
           description: User not found
           
-        400:
-          description: If password not valid or other error
+        
           
   /auth/register:
     post:
@@ -139,7 +140,22 @@ paths:
         400:
           description: refreshToken is invalid
                   
-          
+  /auth/logout:
+    get:
+      tags:
+        - auth
+      description: logout 
+      operationId: logout
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Successful operation
+        400:
+          description: refreshToken not linked to user
+        403:
+          description: unauthorized request
+      
   /user:
     get:
       tags:
