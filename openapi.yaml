@@ -53,9 +53,9 @@ paths:
               schema:
                 type: object
                 properties:
-                  access_token:
+                  accessToken:
                     type: string
-                  refresh_token:
+                  refreshToken:
                     type: string
         404:
           description: User not found
