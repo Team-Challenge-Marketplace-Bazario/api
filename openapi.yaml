@@ -228,6 +228,13 @@ paths:
           schema:
             type: string
           example: 'abc'
+
+        - in: query
+          name: category
+          schema:
+            type: string
+          example: 'CLOTHES'
+          description: can be one of CHILDREN, ANIMALS, CLOTHES, ELECTRONICS, HOUSEHOLD, GARDEN
         
         - in: query
           name: sort
@@ -399,6 +406,11 @@ paths:
                 description:
                   type: string
                   example: Adv Description
+                  
+                category:
+                  type: string
+                  example: CLOTHES
+                  description: one of CHILDREN, ANIMALS, CLOTHES, ELECTRONICS, HOUSEHOLD, GARDEN or empty string to remove category
                 
                 price:
                   type: string
@@ -680,13 +692,17 @@ components:
         description:
           type: string
           example: Description
+          
+        category:
+          type: string
+          example: CLOTHES
+          description: can be one of CHILDREN, ANIMALS, CLOTHES, ELECTRONICS, HOUSEHOLD, GARDEN
         
         pics:
           type: array
           items:
             $ref: '#/components/schemas/AdvertisementPicture'
             
-        
         price:
           type: string
           example: '123.45'
